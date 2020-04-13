@@ -1,0 +1,167 @@
+<!-- Doctype declaration for a html file  -->
+<!DOCTYPE html>
+<!-- Language selection English USA  -->
+<html lang="en-us">
+
+<head>
+
+    <!-- Specifies the character encoding for the HTML document.
+        Common values:
+        UTF-8 - Character encoding for Unicode
+        ISO-8859-1 - Character encoding for the Latin alphabet -->
+    <meta charset="UTF-8">
+
+    <!-- Page's dimensions and scale in viewport, website is optimized for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- The X-UA-Compatible meta tag is a http-equiv meta tag. -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- healthcare favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon_io/favicon-16x16.png">
+    <!--<link rel="manifest" href="/site.webmanifest"-->
+
+    <!-- Icon's link  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Reset CSS  -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+
+    <!-- <!- fontawesome css link  -->
+    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!-Compiled and minified - Materialize CSS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- I will be creating a new file for every css code so we dont override the code after creating to many classes or ids  -->
+    <!--<link rel="stylesheet" href="assets/css/socialmediabutton.css">-->
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/css/physician.css">
+
+    <!-- This is the title I can think of so far, it can be changed at any time (Manuel) -->
+    <title>Family Health Services & More</title>
+
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo"><i class="material-icons"><img
+                        src="assets/images/logo-via-logohub.png" class="brand-logo" alt="Logo"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html" class="button"><i class="material-icons">home</i></a></li>
+                <li><a class="btn-flat transparent"><i class="material-icons" id="rP1">refresh</i></a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+                <li><strong style="color:black;font-style: italic;">Miami-Dade County Area</strong></li>
+            </ul>
+        </div>
+    </nav>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <div class="container">
+        <div class="row"></div>
+        </br>
+        <div class="row">
+            <div class="col s4">
+                <select id='op1'>
+                    <option value="" disabled selected></option>
+                    <option value="" disabled selected>Specialties</option>
+                    <option value="General Surgeon">General Surgeon</option>
+                    <option value="Hand surgeon">Hand surgeon</option>
+                    <option value="Anesthesiologist">Anesthesiologist</option>
+                    <option value="Cardiologist"> Cardiologist</option>
+                    <option value="Pediatric cardiologist"> Pediatric cardiologist</option>
+                    <option value="Family practice physician">Family practice physician</option>
+                    <option value="Psychiatrist">Psychiatrist</option>
+                    <option value="Orthopedic surgeon">Orthopedic surgeon</option>
+                    <option value="Dermatologist">Dermatologist</option>
+                    <option value="Internist">Internist</option>
+                    <option value="Family Medicine Sleep Medicine">Family Medicine Sleep Medicine</option>
+                    <option value="Pulmonologist">Pulmonologist</option>
+                    <option value="Oral & facial surgeon">Oral & facial surgeon</option>
+                    <option value="Podiatric Surgeon">Podiatric Surgeon</option>
+                    <option value="Hematologist"> Hematologist</option>
+                    <option value="Nephrologist">Nephrologist</option>
+                    <option value="Pathologist">Pathologist</option>
+                    <option value="Gastroenterologist">Gastroenterologist</option>
+                    <option value="Plastic Surgeon">Plastic Surgeon</option>
+                    <option value="Obstetrician-gynecologist">Obstetrician-gynecologist</option>
+                    <option value="Pediatric Cardiologist">Pediatric Cardiologist</option>
+                    <option value="Clinical Pathologist">Clinical Pathologist</option>
+                    <option value="Pediatrician">Pediatrician</option>
+                    <option value="Neurologist">Neurologist</option>
+                    <option value="Neurological Surgery">Neurological Surgery</option>
+                    <option value="Otolaryngology">Otolaryngology</option>
+                    <option value="Psychiatrist">Psychiatrist</option>
+                    <option value="Endocrinologist">Endocrinologist</option>
+                    <option value="Podiatrist">Podiatrist</option>
+                    <option value="Oncologist">Oncologist</option>
+                    <option value="Medical clinic">Medical clinic"</option>
+                    <option value="General Doctor">General Doctor"</option>
+                    <option value="Radiologist">Radiologist"</option>
+                    <option value="Fertility physician">Fertility physician"</option>
+                    <option value="Forensic pathology">Forensic pathology"</option>
+                    <option value="Pain medicine">Pain medicine"</option>
+                    <option value="Rheumatologist">Rheumatologist"</option>
+                    <option value="Neumatologist">Neumatologist"</option>
+                    <option value="Urologist">Urologist"</option>
+                </select>
+            </div>
+            <div class="col s1"></div>
+            <div class="col s7">
+                <form>
+                    <span>Zip Code: <input id="to-do" type="text" class="form-control clearFields" name="fullName"
+                            value=" ">
+                        <input id="add-to-do" class="btn waves-effect waves-light" value="submit" type="submit"></span>
+                </form>
+                </br>
+                </br>
+                <div id="loader" style="display: none;">
+                    <img src="assets/images/demo_wait.gif" width="32px" height="32px">
+                </div>
+                <div id="doctorsList"></div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <div class="row">
+            <div class="col s12 social-media-buttons">
+                <a href="https://www.facebook.com" class="fa fa-facebook" target="_blank"></a>
+                <a href="https://www.instagram.com" class="fa fa-instagram" target="_blank"></a>
+                <a href="https://www.youtube.com" class="fa fa-youtube" target="_blank"></a>
+                <a href="https://twitter.com" class="fa fa-twitter" target="_blank"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+    </script>
+
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+
+</body>
+
+</html>
