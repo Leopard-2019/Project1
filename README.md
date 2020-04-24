@@ -4,3 +4,9 @@ This project has built an app which allows client to look up healthcare provider
 This app is deployed at: https://leopard-2019.github.io/Project1/
 
 ![](assets/images/Project1_Figure1.png)
+
+
+![](assets/images/Project1_Figure2.png)
+
+
+![](assets/images/Project1_Figure3.png)
