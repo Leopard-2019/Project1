@@ -1,5 +1,5 @@
 # PROJECT 1 #
-This project has built an app which allows client to look up healthcare providers in their area via zip code search within the Miami-Dade County, Florida. This includes Physicians, Dentists, and Vision, all under one “roof”(Website).
+This project has built an app which allows client to look up healthcare providers in their area via zip code search within the Miami-Dade County, Florida. This includes Physicians, Dentists, and Vision specialists, all under one “roof”(Website).
 
 This app is deployed at: https://leopard-2019.github.io/Project1/
 
