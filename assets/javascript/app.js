@@ -3,15 +3,17 @@
 var laT1 = 0;
 var lnG1 = 0;
 var newStateArray = [];
+const API_KEY =
+  "387ChGdlgT1Ktdv2QD1G3dhtVn6kLUsWOM0auADpXexBunPoU1sDbgf4iPvOoxG5";
 
 // Event listener for all button elements
 
-$("#add-to-do").on("click", function(event) {
+$("#add-to-do").on("click", function (event) {
   // prevent form from trying to submit/refresh the page
 
   event.preventDefault();
 
-  $.getJSON("./doctor.json", function(data) {
+  $.getJSON("./doctor.json", function (data) {
     for (i = 0; i < data.length; i++) {
       newStateArray.push({
         id: data[i].id,
@@ -23,7 +25,7 @@ $("#add-to-do").on("click", function(event) {
         zip: data[i].Zipcode,
         phone: data[i].Phone,
         lat: data[i].lat,
-        lng: data[i].lng
+        lng: data[i].lng,
       });
     }
     sample1(newStateArray);
@@ -31,9 +33,7 @@ $("#add-to-do").on("click", function(event) {
 
   //zip code typed by the user
   function sample1() {
-    var zipcode = $("#to-do")
-      .val()
-      .trim();
+    var zipcode = $("#to-do").val().trim();
 
     // checking if the zip code given has 5 digits, if the zip code given has less or more than 5 digits
     // there will not be any URL's construction to zipcodeapi, i.e., any AJAX call etc, otherwise
@@ -47,39 +47,55 @@ $("#add-to-do").on("click", function(event) {
     } else {
       // Constructing a URL to search zipcodeapi to covert zip code into location (latitude and longitude)
 
+      (function () {
+        var cors_api_host = "cors-anywhere.herokuapp.com";
+        var cors_api_url = "https://" + cors_api_host + "/";
+        var slice = [].slice;
+        var origin = window.location.protocol + "//" + window.location.host;
+        var open = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function () {
+          var args = slice.call(arguments);
+          var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
+          if (
+            targetOrigin &&
+            targetOrigin[0].toLowerCase() !== origin &&
+            targetOrigin[1] !== cors_api_host
+          ) {
+            args[1] = cors_api_url + args[1];
+          }
+          return open.apply(this, args);
+        };
+      })();
+
       var queryURL =
-        "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/hPlLvWe8CJBQcWe4nveaNl1QcWYmDofqmHiu1UR16I1YB0l7hmRflWRfznO8GwId/info.json/" +
+        "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/387ChGdlgT1Ktdv2QD1G3dhtVn6kLUsWOM0auADpXexBunPoU1sDbgf4iPvOoxG5/info.json/" +
         zipcode +
         "/degrees";
 
       // Using ajaxStart to show the loader image
 
-      $(document).ajaxStart(function() {
+      $(document).ajaxStart(function () {
         // Show image container
         $("#loader").show();
       });
-       
+
       // Performing our AJAX GET request to convert zip code into location (latitude and longitude)
 
       $.ajax({
         url: queryURL,
-        method: "GET"
-      })
-        // After the data comes back from the API
-        // After the data comes back from the API
+        method: "GET",
+      }).then(function (res) {
+        // store the response ((latitude, longitude) from the first AJAX call
 
-        .then(function(response) {
-          // // store the response ((latitude, longitude) from the first AJAX call
+        laT1 = res.lat;
+        lnG1 = res.lng;
+        sample2(laT1, lnG1, newStateArray);
 
-          laT1 = response.lat;
-          lnG1 = response.lng;
-          sample2(laT1, lnG1, newStateArray);
-
-          $(document).ajaxComplete(function() {
-            // Hide image container
-            $("#loader").hide();
-          });
+        $(document).ajaxComplete(function () {
+          // Hide image container
+          $("#loader").hide();
         });
+      });
     }
   }
   function sample2() {
@@ -112,9 +128,7 @@ $("#add-to-do").on("click", function(event) {
 
         //doctor's specialty selected by the user
 
-        bar1 = $("#op1")
-          .val()
-          .trim();
+        bar1 = $("#op1").val().trim();
 
         // store the data from the second AJAX call
 
