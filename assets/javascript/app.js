@@ -3,8 +3,6 @@
 var laT1 = 0;
 var lnG1 = 0;
 var newStateArray = [];
-const API_KEY =
-  "387ChGdlgT1Ktdv2QD1G3dhtVn6kLUsWOM0auADpXexBunPoU1sDbgf4iPvOoxG5";
 
 // Event listener for all button elements
 
