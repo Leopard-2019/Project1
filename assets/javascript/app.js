@@ -45,34 +45,37 @@ $("#add-to-do").on("click", function (event) {
     } else {
       // Constructing a URL to search zipcodeapi to covert zip code into location (latitude and longitude)
 
-      (function () {
-        var cors_api_host = "cors-anywhere.herokuapp.com";
-        var cors_api_url = "https://" + cors_api_host + "/";
-        var slice = [].slice;
-        var origin = window.location.protocol + "//" + window.location.host;
-        var open = XMLHttpRequest.prototype.open;
-        XMLHttpRequest.prototype.open = function () {
-          var args = slice.call(arguments);
-          var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
-          if (
-            targetOrigin &&
-            targetOrigin[0].toLowerCase() !== origin &&
-            targetOrigin[1] !== cors_api_host
-          ) {
-            args[1] = cors_api_url + args[1];
-          }
-          return open.apply(this, args);
-        };
-      })();
+      // (function () {
+      //   var cors_api_host = "cors-anywhere.herokuapp.com";
+      //   var cors_api_url = "https://" + cors_api_host + "/";
+      //   var slice = [].slice;
+      //   var origin = window.location.protocol + "//" + window.location.host;
+      //   var open = XMLHttpRequest.prototype.open;
+      //   XMLHttpRequest.prototype.open = function () {
+      //     var args = slice.call(arguments);
+      //     var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
+      //     if (
+      //       targetOrigin &&
+      //       targetOrigin[0].toLowerCase() !== origin &&
+      //       targetOrigin[1] !== cors_api_host
+      //     ) {
+      //       args[1] = cors_api_url + args[1];
+      //     }
+      //     return open.apply(this, args);
+      //   };
+      // })();
 
-      var queryURL =
-        "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/387ChGdlgT1Ktdv2QD1G3dhtVn6kLUsWOM0auADpXexBunPoU1sDbgf4iPvOoxG5/info.json/" +
-        zipcode +
-        "/degrees";
+      var queryURL = `https://app.zipcodebase.com/api/v1/search?apikey=d4432520-9500-11ec-8bf3-df0e35543ab0&codes=${zipcode}&country=us`;
+
+      //app.zipcodebase.com/api/v1/search?apikey=d4432520-9500-11ec-8bf3-df0e35543ab0&codes=33166&
+
+      // "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/387ChGdlgT1Ktdv2QD1G3dhtVn6kLUsWOM0auADpXexBunPoU1sDbgf4iPvOoxG5/info.json/" +
+      // zipcode +
+      // "/degrees";
 
       // Using ajaxStart to show the loader image
 
-      $(document).ajaxStart(function () {
+      https: $(document).ajaxStart(function () {
         // Show image container
         $("#loader").show();
       });
@@ -84,9 +87,10 @@ $("#add-to-do").on("click", function (event) {
         method: "GET",
       }).then(function (res) {
         // store the response ((latitude, longitude) from the first AJAX call
-
-        laT1 = res.lat;
-        lnG1 = res.lng;
+        const zip = zipcode;
+        console.log(res.results[zip][0].latitude);
+        laT1 = res.results[zip][0].latitude;
+        lnG1 = res.results[zip][0].longitude;
         sample2(laT1, lnG1, newStateArray);
 
         $(document).ajaxComplete(function () {
