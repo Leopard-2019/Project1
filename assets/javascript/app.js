@@ -67,6 +67,7 @@ $("#add-to-do").on("click", function (event) {
 
       var queryURL = `https://app.zipcodebase.com/api/v1/search?apikey=d4432520-9500-11ec-8bf3-df0e35543ab0&codes=${zipcode}&country=us`;
 
+      console.log(queryURL);
       //app.zipcodebase.com/api/v1/search?apikey=d4432520-9500-11ec-8bf3-df0e35543ab0&codes=33166&
 
       // "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/387ChGdlgT1Ktdv2QD1G3dhtVn6kLUsWOM0auADpXexBunPoU1sDbgf4iPvOoxG5/info.json/" +
