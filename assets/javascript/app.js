@@ -65,7 +65,7 @@ $("#add-to-do").on("click", function (event) {
       //   };
       // })();
 
-      var queryURL = `https://app.zipcodebase.com/api/v1/search?apikey=d4432520-9500-11ec-8bf3-df0e35543ab0&codes=${zipcode}&country=us`;
+      var queryURL = `https://app.zipcodebase.com/api/v1/search?apikey=&codes=${zipcode}&country=us`;
 
       console.log(queryURL);
       //app.zipcodebase.com/api/v1/search?apikey=d4432520-9500-11ec-8bf3-df0e35543ab0&codes=33166&
